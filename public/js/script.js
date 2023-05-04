@@ -26,8 +26,4 @@ if (darkmode) {
     document.querySelector('.sectionB').classList.add('darkmode')
     document.querySelector('#dark-mode-switch').checked = 'checked'
 }
-activateTab(opentab)
 
-tinymce.init({
-  selector: '#mytextarea'
-});

@@ -37,56 +37,29 @@
       </li>
     </ul>
   </div>
-
-
-
   <section class="sectionB">
 
-    <div class="">
-      <div class="content">
-        <div class="container">
-          <img src="images/Web-development,-programmer-engineering-and-coding-website-on-augmented-reality-interface-screens-on-transparent-background-PNG.png" alt="" id="programmer" class="img-fluid">
+    <div class="content">
+      <button type="button" class="btn btn-primary padd"><a href="/new-resource" class="styleA ">Add a new
+          resource!</a></button>
+      <div class="content padd">
+        <h1>Or explore... </h1>
+        <div class="row row-cols-1 row-cols-md-2">
+           {{#each resources}}
+            <div class="col-6 p-2">
+                <div class="card text-dark bg-light cardSize">
+                    <p class="card-text"> <span>Title:</span> {{this.title}} &#128204</p>
+                    <p class="card-text"> <span>category:</span> {{this.category}} &#127752</p>
+                    <button type="button" class="btn btn-info">See More</button>
+                </div>
+            </div>
+            {{/each}}
         </div>
-        
-        <button type="button" class="btn btn-primary "><a href="/new-resource" class="styleA ">Add a new resource!</a></button>
-        <div class="content padd">
-          <h1>Or explore... </h1>
-          <div class="card-group">
-            <div class="card m-2">
-              <img src="images/cod1.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Título de la tarjeta</h5>
-                <p class="card-text">Esta es una tarjeta más amplia con texto de apoyo a continuación como introducción
-                  natural a contenido adicional. Este contenido es un poco más largo.</p>
-                <p class="card-text"><small class="text-muted">Última actualización hace 3 minutos</small></p>
-              </div>
-            </div>
-            <div class="card m-2">
-              <img src="images/cod1.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Título de la tarjeta</h5>
-                <p class="card-text">Esta tarjeta tiene texto de apoyo a continuación como una introducción natural a
-                  contenido adicional.</p>
-                <p class="card-text"><small class="text-muted">Última actualización hace 3 minutos</small></p>
-              </div>
-            </div>
-            <div class="card m-2">
-              <img src="images/cod1.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Título de la tarjeta</h5>
-                <p class="card-text">Esta es una tarjeta más amplia con texto de apoyo a continuación como introducción
-                  natural a contenido adicional. Esta tarjeta tiene un contenido aún más largo que la primera para
-                  mostrar
-                  esa acción de igual altura.</p>
-                <p class="card-text"><small class="text-muted">Última actualización hace 3 minutos</small></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
       </div>
+
+
     </div>
 
   </section>
+
 </div>

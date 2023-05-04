@@ -15,9 +15,6 @@ router.get("/signup", isLoggedOut, (req, res) => {
   res.render("auth/signup");
 });
 
-router.get("/resources", (req, res) => {
-  res.render("auth/resources");
-});
 
 router.post('/signup', isLoggedOut, async (request, response) => {
   const { email, password } = request.body;
@@ -112,14 +109,23 @@ router.post('/new-resource', (req, res, next) => {
   Resource.create({ title, category, content, code })
 
     .then(data => {
-      res.redirect('/new-resource')
+      res.redirect('/resources')
     })
     .catch(error => next(error));
 });
 
 
 
-
+router.get('/resources', (req, res, next) => {
+  Resource.find()
+  .then(allResources => {
+      res.render ('auth/resources', {resources: allResources});
+  })
+  .catch(error => {
+      console.log('Error while getting the resources from the DB: ', error);
+      next(error);
+  });
+});
 
 
 

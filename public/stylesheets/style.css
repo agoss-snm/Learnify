@@ -380,7 +380,7 @@ border-radius: 10px !important;
 /*dark mode*/
 
 .darkmode .content {
-  background-color: #222222;
+  background-color: #343434;
   color: #8a8a8a;
   min-height: 100vh;
 }
@@ -431,6 +431,17 @@ margin-left: 4px;
   box-shadow:  2px 2px 3px #34353a, 
                -2px -2px 3px #000104;
 }
+.darkmode .my-input {
+  background-color: #555;
+  color: #ccc;
+}
+.darkmode .my-input2 {
+  color: #ccc;
+}
+.darkmode select {
+  background-color: #555;
+  color: #ccc;
+}
 .slider:before {
   position: absolute;
   content: "";
@@ -461,8 +472,9 @@ input:checked + .slider:before {
 }
 
 .padd{
-  padding: 7vh;
   margin-top: 5vh;
+  margin-left: 7vh;
+  margin-right: 2vh;
 }
 
 #programmer{
@@ -486,3 +498,7 @@ input:checked + .slider:before {
 }
 
 
+/**/
+.cardSize{
+  min-height: 10vh;
+}
