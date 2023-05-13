@@ -19,7 +19,7 @@ module.exports = (app) => {
       saveUninitialized: false,
       cookie: {
         httpOnly: true,
-        maxAge: 990000 // 60 * 1000 ms === 1 min
+        maxAge: 800000 // 60 * 1000 ms === 1 min
       }, // ADDED code below !!!
       store: MongoStore.create({
         mongoUrl: process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/learnify"

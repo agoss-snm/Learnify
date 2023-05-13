@@ -1,59 +1,59 @@
 <div class="background">
-  <div class="menu-container">
-    <ul class="menu">
-      <li class="menu__item">
-        <a href="#" class="menu__link">
-          <span class="menu__text">HTML</span>
-          <span><img src="images/html-5.png" width="35px" height="35px"></span>
-        </a>
-      </li>
-
-      <li class="menu__item">
-        <a href="#" class="menu__link">
-          <span class="menu__text">CSS</span>
-          <span><img src="images/css.png" alt="" width="35px" height="35px"></span>
-        </a>
-      </li>
-
-      <li class="menu__item">
-        <a href="#" class="menu__link">
-          <span class="menu__text">JS</span>
-          <span><img src="images/js.png" alt="" width="35px" height="35px"></span>
-        </a>
-      </li>
-
-      <li class="menu__item">
-        <a href="#" class="menu__link">
-          <span class="menu__text">PHP</span>
-          <span><img src="images/documento-php.png" alt="" width="35px" height="35px"></span>
-        </a>
-      </li>
-
-      <li class="menu__item">
-        <a href="#" class="menu__link">
-          <span class="menu__text">PYTHON</span>
-          <span><img src="images/piton.png" alt="" width="35px" height="35px"></span>
-        </a>
-      </li>
-    </ul>
-  </div>
   <section class="sectionB">
+    <!--section -->
+    <div class="contenedorr">
+      <div class="wrap">
+        <img src="/images/whiteHtml.png" alt="">
+        <video playsInline="true" autoplay loop muted playsinline>
+          <source src="/images/computadora-portatil-117.mp4" type="video/mp4" > </source>
+        </video>
+        </div>
+      <div class="wrap">
+        <img src="images/whitecss.png" alt="">
+        <video playsInline="true" autoplay loop muted playsinline>
+          <source src="/images/red-12716.mp4" type="video/mp4" > </source>
+        </video>
+      </div>
+      <div class="wrap">
+        <img src="images/whitejs.png" alt="">
+        <video playsInline="true" autoplay loop muted playsinline>
+          <source src="/images/codigos-23355.mp4" type="video/mp4" > </source>
+        </video>
+        </div>
+      <div class="wrap">
+        <img src="images/whitephp1.png" alt="">
+        <video playsInline="true" autoplay loop muted playsinline>
+          <source src="/images/codigos-23355.mp4" type="video/mp4" > </source>
+        </video>
+        </div>
+      <div class="wrap">
+        <img src="images/whitepython.png" alt="">
+        <video playsInline="true" autoplay loop muted playsinline>
+          <source src="/images/codigos-23355.mp4" type="video/mp4" > </source>
+        </video>
+        </div>
+    </div>
+
+    <!--section -->
 
     <div class="content">
+      <img src="/images/coder3chibi.png" class="rounded mx-auto d-block chibi padd" alt="...">
       <button type="button" class="btn btn-primary padd"><a href="/new-resource" class="styleA ">Add a new
           resource!</a></button>
       <div class="content padd">
         <h1>Or explore... </h1>
         <div class="row row-cols-1 row-cols-md-2">
-           {{#each resources}}
-            <div class="col-6 p-2">
-                <div class="card text-dark bg-light cardSize">
-                    <p class="card-text"> <span>Title:</span> {{this.title}} &#128204</p>
-                    <p class="card-text"> <span>category:</span> {{this.category}} &#127752</p>
-                    <button type="button" class="btn btn-info">See More</button>
-                </div>
+          {{#each resources}}
+          <div class="col-6 p-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{this.title}}</h5>
+                <p class="card-text">{{this.category}}</p>
+                <a href="/resource/{{id}}" class="btn btn-primary">Descover !</a>
+              </div>
             </div>
-            {{/each}}
+          </div>
+          {{/each}}
         </div>
       </div>
 

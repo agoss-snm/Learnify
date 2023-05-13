@@ -115,7 +115,6 @@ router.post('/new-resource', (req, res, next) => {
 });
 
 
-
 router.get('/resources', (req, res, next) => {
   Resource.find()
   .then(allResources => {
@@ -127,8 +126,16 @@ router.get('/resources', (req, res, next) => {
   });
 });
 
-
-
+/**Resource detail Routes */
+router.get('/resource/:id', (req, res, next) => {
+  const { id } = req.params;
+  Resource.findById(id)
+      .then(data => res.render('auth/resource-detail.hbs', { resource: data }))
+      .catch(error => {
+          console.log('Error while retrieving resource details: ', error);
+          next(error);
+      });
+});
 
 
 
