@@ -137,8 +137,24 @@ router.get('/resource/:id', (req, res, next) => {
       });
 });
 
+/**get del edit */
+router.get('/resource/:id/edit', (req, res, next) => {
+  const { id } = req.params;
+  Resource.findById(id)
+      .then(resourceEdit => {
+          res.render('auth/edit-resource.hbs', { data: resourceEdit });
+      })
+      .catch(error => next(error));
+});
 
-
+/**post del edit */
+router.post('/resource/:id/edit', (req, res, next) => {
+  const { id } = req.params;
+  const { title, category, content, code } = req.body;
+  Resource.findByIdAndUpdate(id, { title, category, content, code }, { new: true })
+      .then(updateResource => res.redirect(`/resources`)) // go to the details page to see the updates
+      .catch(error => next(error));
+});
 
 
 
