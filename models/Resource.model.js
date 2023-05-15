@@ -16,6 +16,9 @@ const resourceSchema = new Schema(
         type: String,
         required: true,
       },
+      snippet: {
+        type: String,
+      },
       code:{
         type:String,
       }

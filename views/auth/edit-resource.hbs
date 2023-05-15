@@ -1,1 +1,49 @@
-<p>soy el edit</p>
+<div class="sectionB">
+  <div class="content">
+    <div class=' margForm'>
+
+      <div class="form p-2">
+        <form action="/new-resource" , method="POST">
+          <div class="mb-3">
+            <label for="name" class="form-label">Title</label>
+            <input type="text" id="title" name='title' class="form-control my-input" value="{{data.title}}">
+            <div  class="my-imput2">
+              Edit resource {{data.title}}
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <select class="form-select my-input" aria-label="Default select example" name="category" >
+              <option >Open this select menu</option>
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="JAVASCRIPT">JAVASCRIPT</option>
+              <option value="PHP">PHP</option>
+              <option value="PYTHON">PYTHON</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="textarea" class="form-label">Content</label>
+            <textarea name="content" id="" cols="30" rows="10" class="tinymce">
+                {{data.content}}
+    </textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="code" class="form-label">Code</label>
+            <textarea class="form-control my-input" id="code" rows="3" name='code' readonly> asdsd</textarea>
+            <div id="passwordHelpBlock" class="my-imput2">
+              This is the code for run an HTML editor, you cant remove.
+            </div>
+          </div>
+          <button  class="btn btn-primary" ><a href="/resources" class="enlace">Return</a></button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+
+</div>

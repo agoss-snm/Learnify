@@ -290,6 +290,7 @@ background-image: center;
 .dark-mode-switch .switch {
 margin-left: 4px; 
 }
+
 .switch-label {
   margin-right: 1.5vh;
   cursor: pointer;
@@ -351,6 +352,14 @@ margin-left: 4px;
 .darkmode .switch-label{
   color: white;
 }
+.container {
+  background-color: white; /* Fondo blanco en modo día */
+}
+
+.darkmode .container {
+  background-color: rgb(53, 48, 48); /* Fondo negro en modo oscuro */
+}
+
 .slider:before {
   position: absolute;
   content: "";
@@ -404,6 +413,7 @@ input:checked + .slider:before {
 }
 .form{
   border: 5px solid rgb(251, 143, 255);
+  border-radius: 10px;
 }
 
 
@@ -587,7 +597,9 @@ input:checked + .slider:before {
   }
 }
 
-
+.enlace{
+color:white
+}
 @media (max-width: 768px) {
   .contenedorr {
     display: grid;

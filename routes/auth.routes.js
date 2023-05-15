@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
+const domPurifier= require ('dompurify');
 
 // Require the User model in order to interact with the database
 const User = require("../models/User.model");
@@ -153,6 +154,14 @@ router.post('/resource/:id/edit', (req, res, next) => {
   const { title, category, content, code } = req.body;
   Resource.findByIdAndUpdate(id, { title, category, content, code }, { new: true })
       .then(updateResource => res.redirect(`/resources`)) // go to the details page to see the updates
+      .catch(error => next(error));
+});
+
+//delete
+router.post('/resource/:id/delete', (req, res, next) => {
+  const { id } = req.params;
+  Resource.findByIdAndDelete(id)
+      .then(() => res.redirect('/resources'))
       .catch(error => next(error));
 });
 

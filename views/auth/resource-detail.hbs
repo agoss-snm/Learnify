@@ -4,13 +4,13 @@
     <h1>{{resource.title}}</h1>
     <h4>Category:{{resource.category}}</h4>
 
-    <textarea name="content" id="" cols="30" rows="10" class="tinymce">
-        {{resource.content}}
-    </textarea>
+    {{{resource.content}}}
     <p>{{resource.code}}</p>
 
-    
-    <button type="button" class="btn btn-warning">Delete</button>
+     <button type="button" class="btn btn-primary"><a class='enlace' href="/resource/{{resource.id}}/edit">Edit</a></button>
+    <form action="/resource/{{resource.id}}/delete" method="POST">
+                        <button type="bnt btn-danger">Delete</button>
+                    </form>
     </div>
     </div>
 </div>
