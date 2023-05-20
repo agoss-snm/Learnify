@@ -1,20 +1,24 @@
 <div class="sectionB">
   <div class="content">
-    <div class='container margForm'>
+    <div class='margForm'>
 
       <div class="form p-2">
-        <form action="/new-resource" , method="POST">
+        <form action="/new-resource" , method="POST" , enctype="multipart/form-data">
           <div class="mb-3">
             <label for="name" class="form-label">Title</label>
             <input type="text" id="title" name='title' class="form-control my-input">
-            <div  class="my-imput2">
+            <div class="my-imput2">
               Please choise a title to define your work
             </div>
+          </div>
+          <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" id="image" name="image" class="form-control my-input">
           </div>
 
           <div class="mb-3">
             <label for="category" class="form-label">Category</label>
-            <select class="form-select my-input" aria-label="Default select example" name="category" >
+            <select class="form-select my-input" aria-label="Default select example" name="category">
               <option selected>Open this select menu</option>
               <option value="HTML">HTML</option>
               <option value="CSS">CSS</option>
@@ -26,17 +30,41 @@
 
           <div class="mb-3">
             <label for="textarea" class="form-label">Content</label>
-            <textarea name="content" id="" cols="30" rows="10" class="tinymce">
+            <textarea name="content" id="" class="tinymce">
     </textarea>
           </div>
-
+          <div>
+            <label for="author-select"> Created by:
+              <select name="author">
+                <option disable selected value=""></option>
+                {{#each dbUsers}}
+                <option value="{{this._id}}"> {{this.username}} </option>
+                {{/each}}
+              </select>
+            </label>
+          </div>
           <div class="mb-3">
             <label for="code" class="form-label">Code</label>
-            <textarea class="form-control my-input" id="code" rows="3" name='code' readonly> asdsd</textarea>
+            <input type="text" id="code" name="code" readonly value="&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;left&quot;&gt;
+    &lt;label for=&quot;&quot;&gt;HTML &#128153;&lt;/label&gt;
+    &lt;textarea id=&quot;html-code&quot; onkeyup=&quot;run()&quot;&gt;&lt;/textarea&gt;
+    &lt;label for=&quot;&quot;&gt;CSS 	&#11088;&lt;/label&gt;
+    &lt;textarea id=&quot;css-code&quot; onkeyup=&quot;run()&quot;&gt;&lt;/textarea&gt;
+    &lt;label for=&quot;&quot;&gt;JavasCript 	&#128204;&lt;/label&gt;
+    &lt;textarea id=&quot;js-code&quot; onkeyup=&quot;run()&quot;&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;right&quot;&gt;
+&lt;iframe id=&quot;output&quot;&gt;&lt;/iframe&gt;
+  &lt;/div&gt;
+&lt;/div&gt;">
+
+
             <div id="passwordHelpBlock" class="my-imput2">
               This is the code for run an HTML editor, you cant remove.
             </div>
           </div>
+          <button class="btn btn-primary"><a href="/resources" class="enlace">Return</a></button>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>

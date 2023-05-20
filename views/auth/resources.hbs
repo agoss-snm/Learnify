@@ -2,64 +2,73 @@
   <section class="sectionB">
     <!--section -->
     <div class="contenedorr">
-      <div class="wrap">
-        <img src="/images/whiteHtml.png" alt="">
+      <div class="wrap" id="categoryHtml">
+        <a href="/resources/categoryHtml"><img src="/images/whiteHtml.png" alt=""></a>
         <video playsInline="true" autoplay loop muted playsinline>
-          <source src="/images/computadora-portatil-117.mp4" type="video/mp4" > </source>
-        </video>
-        </div>
-      <div class="wrap">
-        <img src="/images/whitecss.png" alt="">
-        <video playsInline="true" autoplay loop muted playsinline>
-          <source src="/images/red-12716.mp4" type="video/mp4" > </source>
+          <source src="/images/computadora-portatil-117.mp4" type="video/mp4">
+          </source>
         </video>
       </div>
-      <div class="wrap">
-        <img src="/images/whitejs.png" alt="">
+      <div class="wrap" id="categoryCSS">
+        <a href="/resources/categoryCss"><img src="/images/whitecss.png" alt=""></a>
         <video playsInline="true" autoplay loop muted playsinline>
-          <source src="/images/codigos-23355.mp4" type="video/mp4" > </source>
+          <source src="/images/red-12716.mp4" type="video/mp4">
+          </source>
         </video>
-        </div>
-      <div class="wrap">
-        <img src="/images/whitephp1.png" alt="">
+      </div>
+      <div class="wrap" id="categoryJS">
+        <a href="/resources/categoryJs"><img src="/images/whitejs.png" alt=""></a>
         <video playsInline="true" autoplay loop muted playsinline>
-          <source src="/images/falla-27706.mp4" type="video/mp4" > </source>
+          <source src="/images/codigos-23355.mp4" type="video/mp4">
+          </source>
         </video>
-        </div>
-      <div class="wrap">
-        <img src="/images/whitepython.png" alt="">
+      </div>
+      <div class="wrap" id="categoryPhp">
+        <a href="/resources/categoryPhp"><img src="/images/whitephp1.png" alt=""></a>
         <video playsInline="true" autoplay loop muted playsinline>
-          <source src="/images/electronica-5364.mp4" type="video/mp4" > </source>
+          <source src="/images/falla-27706.mp4" type="video/mp4">
+          </source>
         </video>
-        </div>
+      </div>
+      <div class="wrap" id="categoryPython">
+        <a href="/resources/categoryPython"><img src="/images/whitepython.png" alt=""></a>
+        <video playsInline="true" autoplay loop muted playsinline>
+          <source src="/images/electronica-5364.mp4" type="video/mp4">
+          </source>
+        </video>
+      </div>
     </div>
 
     <!--section -->
 
     <div class="content">
-      
-      <button type="button" class="btn btn-primary padd"><a href="/new-resource" class="styleA ">Add a new
-          resource!</a></button>
-      <div class="content padd">
-        <h1>Or explore... </h1>
-        <div class="row row-cols-1 row-cols-md-1">
-          {{#each resources}}
-          <div class="col-6 p-1">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">{{this.title}}</h5>
-                <p class="card-text">{{this.category}}</p>
-                <a href="/resource/{{id}}" class="btn btn-primary">Descover !</a>
-              </div>
-            </div>
-          </div>
-          {{/each}}
+      <div class="alineamiento">
+        <button type="button" class=" glow-on-hover padd"><a href="/new-resource" class="styleA ">Add a new
+            resource!</a></button>
+
+        <div class="content padd">
+          <div class="spaceImg"><img src="../images/pngwing.com.png" alt=""></div>
         </div>
       </div>
 
-
+      <h1>Or explore... </h1>
+      <div class="row align-items-center justify-content-center">
+        {{#each resources}}
+        <div class="col-lg-3 card mt-2 mr-0 p-2 m-2">
+          <div class="row p-3">
+            <img src="../../uploads/{{ this.image.filename }}" class="img" alt="...">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">{{this.category}}</p>
+            <a href="/resource/{{id}}" class="btn descover ">Descover !</a>
+          </div>
+        </div>
+        {{/each}}
+      </div>
     </div>
 
-  </section>
+
+</div>
+
+</section>
 
 </div>

@@ -1,20 +1,14 @@
-{{#if user}}
 <div class="menu-container">
+    <!-- Contenido del menú -->
 </div>
-<div class="sectionB">   
-<div class="background content ">
-    <h4 class="blue">Welcome to your dashboard, {{ user.email }}!</h4>
 
-    <div class="container dashboard">
-        <p class="align">This is your profile page my friend!</p>
+<div class="sectionB">
+    <div class="background content">
+        <h4 class="blue">Welcome to your dashboard, {{ user.email }}!</h4>
+
+        <div class="container dashboard">
+            <p class="align">This is your profile page, my friend!</p>
+        </div>
+
     </div>
-
-    <h4>Favorite article's:</h4>
 </div>
-</div>
-{{else}}
-
-<br>
-<p>Your session is not active. Please loggin.</p>
-
-{{/if}}

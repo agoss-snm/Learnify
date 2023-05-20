@@ -1,17 +1,48 @@
 <div class="background">
-    <div class="padd">
-        <div class="container modelbox">
-    <h1>{{resource.title}}</h1>
-    <h4>Category:{{resource.category}}</h4>
+    <div class="padd ">
+        <div class="containerr modelbox p-2 text-center ">
+            <img src="/uploads/{{ resource.image.filename }}" class="img-thumbnail" alt="...">
+            <h1>{{resource.title}}</h1>
+            <h4>Category:{{resource.category}}</h4>
+            <div> {{{resource.content}}}</div>
+            <hr>
+            <p>Created: {{resource.createdAt}}</p>
+            <div>
+                <h4>Try yourself!</h4>
 
-    {{{resource.content}}}
-    <p>{{resource.code}}</p>
+                {{{resource.code}}}
+            </div>
+            <div class="flexstyle">
+                <button class="btn btn-primary"><a href="/resources" class="enlace">Return</a></button>
+                <button type="button" class="btn btn-primary"><a class='enlace'
+                        href="/resource/{{resource.id}}/edit">Edit</a></button>
+                <form action="/resource/{{resource.id}}/delete" method="POST">
+                    <button type="bnt btn-danger" class="delete">Delete</button>
+                </form>
+            </div>
+            <div class="conteinerr">
+                <h3>Add comment</h3>
 
-     <button type="button" class="btn btn-primary"><a class='enlace' href="/resource/{{resource.id}}/edit">Edit</a></button>
-    <form action="/resource/{{resource.id}}/delete" method="POST">
-                        <button type="bnt btn-danger">Delete</button>
-                    </form>
+                <form action="/resource/{{resource.id}}/comment" method="post">
+                    <div class="commentCampo">
+                        <input type="text" name="postAuthor" value="{{author.username}}" hidden />
+                        <textarea name="content" cols="30" rows="2"></textarea>
+                        <button type="submit">Comment</button>
+                    </div>
+                </form>
+            </div>
+            <h4>Coments</h4>
+            <div>
+                {{resource.coments}}
+                {{#each resource.comments}}
+                <div class="commentCampo">
+
+                    <div class="Wbackground">
+                        <div class="white text-break">{{content}}</div>
+                        <p>by:{{email}} </p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
     </div>
-    </div>
-</div>
-
