@@ -7,7 +7,7 @@ const multer = require('multer');
 const path = require('path');
 
 
-// Require models in order to interact with the database
+// Require the User models in order to interact with the database
 const User = require("../models/User.model");
 const Resource = require('../models/Resource.model')
 const Comment = require('../models/Comment.model')
@@ -18,6 +18,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 
 // Directorio donde se guardarán las imágenes
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, path.join(__dirname, '../public/uploads')); // Ruta relativa a la carpeta padre
@@ -31,7 +32,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 
-/**gets */
 
 router.get("/signup", isLoggedOut, (req, res) => {
   res.render("auth/signup");
@@ -125,10 +125,11 @@ router.get('/new-resource', isLoggedIn, (req, res) => {
 
 router.post('/new-resource', isLoggedIn, upload.single('image'), (req, res, next) => {
   const { title, category, content, code } = req.body;
+  // Accede a la información del archivo cargado
   const image = req.file;
   const author = req.session.currentUser._id;
-  const email = req.session.currentUser.email;
-  Resource.create({ title, category, content, code, image, author, email })
+  const email =req.session.currentUser.email;
+  Resource.create({ title, category, content, code, image, author,email }) // Agrega 'image' a los datos que se guardan en la base de datos
 
     .then(data => {
       res.redirect('/resources');
@@ -139,8 +140,9 @@ router.post('/new-resource', isLoggedIn, upload.single('image'), (req, res, next
 
 router.get('/resources', (req, res, next) => {
   Resource.find()
-    .populate('_id')
+    .populate('_id') // --> we are saying: give me whole user object with this ID (author represents an ID in our case)
     .then(allResources => {
+      // console.log("Posts from the DB: ", dbPosts);
       res.render('auth/resources', { resources: allResources });
     })
     .catch(err => {
@@ -194,6 +196,7 @@ router.post('/resource/:id/delete', isLoggedIn, (req, res, next) => {
 });
 
 /**get de category HTML */
+// GET /resources/categoryHtml
 router.get('/resources/categoryHtml', (req, res, next) => {
   Resource.find({ category: 'HTML' })
     .then(allResourcesHtml => {
@@ -255,6 +258,7 @@ router.get('/resources/categoryPython', (req, res, next) => {
 
 
 router.get("/resources", (req, res, next) => {
+  console.log('hola')
   Resource.find()
     .populate({
       path: "comments",
@@ -284,17 +288,20 @@ router.post('/resource/:id/comment', isLoggedIn, (req, res, next) => {
       const newComment = new Comment({
         author: req.session.currentUser._id, // Utiliza el ID del autor del comentario desde la sesión del usuario actual
         content: content,
-        email: req.session.currentUser.email,
+        email:  req.session.currentUser.email,
       });
+
       // Guardar el comentario en la base de datos
       return newComment.save();
     })
-    .then((comment) => {
-      // Asocia el comentario al recurso
-      return Resource.findByIdAndUpdate(id, { $push: { comments: comment._id } }, { new: true });
+      .then((comment) => {
+        // Asocia el comentario al recurso
+        return Resource.findByIdAndUpdate(id, { $push: { comments: comment._id } }, { new: true });
+     
+      
     })
-    .then((updatedResource) => {
-      res.redirect('/resource/' + id);
+    .then((updatedResource)=>{
+      res.redirect('/resource/'+id);
     })
     .catch((error) => {
       console.log('Error al crear el comentario:', error);

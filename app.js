@@ -4,13 +4,10 @@ const express = require('express');
 const hbs = require('hbs');
 const app = express();
 const path = require('path');
-const authRoutes = require("./routes/auth.routes");
 
 
 require('./config/session.config')(app);
 require('./config')(app);
-require('./error-handling')(app);
-
 
 
 hbs.registerHelper('if_eq', function(a, b, opts) {
@@ -31,9 +28,10 @@ app.use(function(req, res, next) {
 // 👇 Start handling routes here
 const index = require('./routes/index.routes');
 app.use('/', index);
+
+const authRoutes = require("./routes/auth.routes");
 app.use("/", authRoutes);
+require('./error-handling')(app);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-
 
 module.exports = app;
